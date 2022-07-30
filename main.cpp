@@ -6,7 +6,33 @@
 #include <regex>
 #include <fstream>
 #include "Vehicle.h"
+#include "Hash.cpp"
 using namespace std;
+bool checkValidInteger(string input){
+    regex constraint = regex("^[0-9]{1,1}$");
+    return regex_search(input, constraint);
+}
+bool checkValidIntInput(string input){
+    regex constraint = regex("^[0-9]+$");
+    return regex_search(input, constraint);
+}
+
+bool checkValidString(string input){
+    regex constraint = regex("^[A-Z][a-zA-Z]$");
+    return regex_search(input, constraint);
+}
+bool checkIndexThree(string input){
+    regex constraint = regex("^[1-3]{1,1}$");
+    return regex_search(input, constraint);
+}
+bool checkIndexTwo(string input){
+    regex constraint = regex("^[1-2]{1,1}$");
+    return regex_search(input, constraint);
+}
+bool checkIndexFive(string input){
+    regex constraint = regex("^[1-5]{1,1}$");
+    return regex_search(input, constraint);
+}
 void getVehicleData(string file, vector<Vehicle>& vehicles) {
     ifstream inFile(file);
     if (inFile.is_open()) {
@@ -134,10 +160,9 @@ void getVehicleData(string file, vector<Vehicle>& vehicles) {
                 getline(stream, _AP, ',');
                 getline(stream, _AQ, ',');
                 getline(stream, _AR, ',');
-                getline(stream, _AS);
                 Vehicle V(_A, _B, _C, _D, _E, _F, _G, _H, _I, _J, _K, _L, _M, _N, _O, _P, _Q, _R, _S, _T, _U, _V, _W,
                           _X, _Y, _Z, _AA, _AB, _AC, _AD, _AE, _AF, _AG, _AH, _AI, _AJ, _AK, _AL, _AM, _AN, _AO, _AP,
-                          _AQ, _AR, _AS);
+                          _AQ, _AR);
                 vehicles.push_back(V);
             } catch (exception) {cout<<vehicles.size() << endl;}
         }
@@ -145,9 +170,7 @@ void getVehicleData(string file, vector<Vehicle>& vehicles) {
 }
 int main() {
     vector<Vehicle> vehicles;
-    getVehicleData("CarData.csv", vehicles);
-    cout << "\nWelcome to EZCAR, your personal vehicle shopping assistance!\nThis tool will bring every vehicle that satisfies your needs!\nWe will simply ask several questions, and you will be presented with a list of car that satisfy your needs." << endl;
-    cout << vehicles[0].airbags;
-
+    getVehicleData("CarData.csv",vehicles);
+    cout << vehicles[0].styleName;
     return 0;
 }

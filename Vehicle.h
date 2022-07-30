@@ -1,7 +1,7 @@
 //
 // Created by Yiwei Bian on 7/29/22.
 //
-
+#pragma once
 #include <string>
 
 using namespace std;
@@ -47,7 +47,6 @@ struct Vehicle {
     string fuelSystem;
     string horsepowerOutput;
     string brakeType;
-    string msrpOutput;
     string engineOutput;
     string epa;
     string transmissionOutput;
@@ -55,8 +54,7 @@ struct Vehicle {
     Vehicle(int A, int B, string C, string D, int E, int F, int G, float H, int I, int J, float K, float L,
             float M, float N, float O, string P, int Q, int R, bool S, bool T, bool U, bool V, bool W, bool X,
             bool Y, bool Z, bool AA, bool AB, float AC, string AD, string AE, int AF, string AG, string AH, string AI,
-            string AJ, string AK, string AL, string AM, string AN, string AO, string AP, string AQ, string AR,
-            string AS){
+            string AJ, string AK, string AL, string AM, string AN, string AO, string AP, string AQ, string AR){
                 this->msrp = A;
                 this->cityMPG = B;
                 this->engine = C;
@@ -98,11 +96,10 @@ struct Vehicle {
                 this->fuelSystem = AL;
                 this->horsepowerOutput = AM;
                 this->brakeType = AN;
-                this->msrpOutput = AO;
-                this->engineOutput = AP;
-                this->epa = AQ;
-                this->transmissionOutput = AR;
-                this->styleName = AS;
+                this->engineOutput = AO;
+                this->epa = AP;
+                this->transmissionOutput = AQ;
+                this->styleName = AR;
             }
     
 };
