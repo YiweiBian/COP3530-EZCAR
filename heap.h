@@ -25,7 +25,7 @@ public:
     void insert(Vehicle target);
     void deleteMin();
     Vehicle extractMin();
-    void print();
+    vector<Vehicle> print();
 };
 
 class max_heap{
@@ -44,7 +44,7 @@ public:
     max_heap yearSelection(int max, int min);
     max_heap brandSelection(string brand);
     max_heap transmissionSelection(string transmission);
-    max_heap fuelSelection(string fuel);
+    max_heap fuelSelection( int selection);
     max_heap purposeSelection(float max, float min);
     max_heap seatsSelection(int minSeats, int maxSeats);
     max_heap riskSelection();
@@ -54,7 +54,8 @@ public:
     max_heap assistanceSelection();
     max_heap lightSelection();
     min_heap reverse();
-    void print();
+    vector<Vehicle> final_list();
+    vector<Vehicle> print();
 };
 
 #endif //CAR_SELECTION_HEAP_H

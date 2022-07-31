@@ -54,12 +54,20 @@ void min_heap:: deleteMin(){
 Vehicle min_heap::extractMin() {
     return heap[0];
 }
-void min_heap::print() {
+vector<Vehicle> max_heap::print() {
     int size = heap.size();
-    for(unsigned int i = 0; i < size; i++){
-        cout << extractMin().msrp << endl;
-        deleteMin();
+    vector<Vehicle> final_list;
+    if(size == 0){
+        cout << "No results have been found!" << endl;
     }
+    else{
+        for(unsigned int i = 0; i < size; i++){
+            cout << i << ". " << "$" << extractMax().msrp <<" "<< extractMax().model << endl;
+            final_list.push_back(extractMax());
+            deleteMax();
+        }
+    }
+    return final_list;
 }
 //
 //
@@ -163,11 +171,20 @@ max_heap max_heap::transmissionSelection(std::string transmission) {
     return result;
 }
 
-max_heap max_heap::fuelSelection(std::string fuel) {
+max_heap max_heap::fuelSelection(int selection) {
     max_heap result;
-    for(unsigned int i = 0; i < heap.size(); i++){
-        if(heap[i].fuelSystem == fuel){
-            result.insert(heap[i]);
+    if(selection == 1){
+        for(unsigned int i = 0; i < heap.size(); i++){
+            if(heap[i].fuelSystem == "Electric"){
+                result.insert(heap[i]);
+            }
+        }
+    }
+    if(selection == 2){
+        for(unsigned int i = 0; i < heap.size(); i++){
+            if(heap[i].fuelSystem != "Electric"){
+                result.insert(heap[i]);
+            }
         }
     }
     return result;
@@ -261,12 +278,21 @@ min_heap max_heap::reverse() {
     return result;
 }
 
-void max_heap::print() {
+
+vector<Vehicle> min_heap::print() {
     int size = heap.size();
-    for(unsigned int i = 0; i < size; i++){
-        cout << extractMax().msrp << endl;
-        deleteMax();
+    vector<Vehicle> final_list;
+    if(size == 0){
+        cout << "No results have been found!" << endl;
     }
+    else{
+        for(unsigned int i = 0; i < size; i++){
+            cout << i << ". " << "$" << extractMin().msrp <<" "<< extractMin().model << endl;
+            final_list.push_back(extractMin());
+            deleteMin();
+        }
+    }
+    return final_list;
 }
 
 
