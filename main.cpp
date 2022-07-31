@@ -150,7 +150,6 @@ void getVehicleData(string file, vector<Vehicle>& vehicles) {
                 getline(stream, _AH, ',');
 
                 getline(stream, _AI, ',');
-                _AI = stoi(temp);
                 getline(stream, _AJ, ',');
                 getline(stream, _AK, ',');
                 getline(stream, _AL, ',');
