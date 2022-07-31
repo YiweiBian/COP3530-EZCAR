@@ -3,6 +3,7 @@
 //
 #pragma once
 #include <string>
+#include <iostream>
 
 using namespace std;
 struct Vehicle {
@@ -101,7 +102,112 @@ struct Vehicle {
                 this->transmissionOutput = AQ;
                 this->styleName = AR;
             }
-    
+            void printInfo(){
+                cout << "Vehicle Detail\n" << endl;\
+                cout << "Model: " << this->model << endl;
+                if(this->msrp == -1)
+                    cout << "MSRP: N/A" << endl;
+                else
+                    cout << "MSRP: $" << this->msrp << endl;
+                if(this->engineOutput == "-1")
+                    cout << "Engine: N/A" << endl;
+                else
+                    cout << "Engine: " << this->engineOutput << endl;
+                if(this->cityMPG == -1)
+                    cout << "City Fuel Economy: N/A" << endl;
+                else
+                    cout << "City Fuel Economy: $" << this->cityMPG << endl;
+                if(this->fuelCapacity == -1)
+                    cout << "Fuel Tank Capacity: N/A" << endl;
+                else
+                    cout << "Fuel Tank Capacity: " << this->fuelCapacity << endl;
+                if(this->transmissionOutput == "-1")
+                    cout << "Transmission: N/A" << endl;
+                else
+                    cout << "Transmission: " << this->transmissionOutput << endl;
+                if(this->horsepowerOutput == "-1")
+                    cout << "Horsepower: N/A" << endl;
+                else
+                    cout << "Horsepower: " << this->horsepowerOutput << endl;
+                if(this->torqueOutput == "-1")
+                    cout << "Torque: N/A" << endl;
+                else
+                    cout << "Torque: " << this->torqueOutput << endl;
+                if(this->fuelSystem == "-1")
+                    cout << "Fuel System: N/A" << endl;
+                else
+                    cout << "Fuel System: " << this->fuelSystem << endl;
+                if(this->epa == "-1")
+                    cout << "EPA Classification: N/A" << endl;
+                else
+                    cout << "EPA Classification: " << this->epa << endl;
+                if(this->passengerCapacity == -1)
+                    cout << "Passenger Capacity: N/A" << endl;
+                else
+                    cout << "Passenger Capacity: " << this->passengerCapacity << endl;
+
+                if(this->passengerDoors == -1)
+                    cout << "Passenger Doors: N/A" << endl;
+                else
+                    cout << "Passenger Doors: " << this->passengerDoors << endl;
+
+                if(this->airbags == -1)
+                    cout << "Airbag Number: N/A" << endl;
+                else   
+                    cout << "Airbag Number: " << airbags << endl;
+                cout << "----------------------------------------------------------------------------------------------------\nAdditional Features\n" << endl;
+                cout << "\nSafety :" << endl;
+                if(this->brakes)
+                    cout << "Brakes-ABS  ";
+                if(this->childSafety)
+                    cout << "Child Safety Rear Door Locks  ";
+                if(this->stabilityControl)
+                    cout << "Stability Control  ";
+                if(this->tractionControl)
+                    cout << "Traction Control  ";
+                if(this->fogLamps)
+                    cout << "Fog Lamps  ";
+                if(this->rolloverProtect)
+                    cout << "Rollover Protection Bars  ";
+                if(this->tirePressure)
+                    cout << "Tire Pressure Monitor";
+                cout << "\nExterior and Convenience: " << endl;
+                if(this->daytimeLights)
+                    cout << "Day-time Running Lights  ";
+                if(this->parkingAid)
+                    cout << "Parking Aid  ";
+                if(this->backCamera)
+                    cout << "Back-Up Camera";
+                cout << endl;
+                cout << "----------------------------------------------------------------------------------------------------\nDimensions\n" << endl;
+                
+                if(this->curbWeight == -1)
+                    cout << "Base Curb Weight: N/A" << endl;
+                else
+                    cout << "Base Curb Weight: " << this->curbWeight << endl;
+
+                if(this->passengerVolume == -1)
+                    cout << "Passenger Volume: N/A" << endl;
+                else
+                    cout << "Passenger Volume: " << this->passengerVolume << endl;
+
+                if(this->wheelbase == -1)
+                    cout << "Wheelbase: N/A" << endl;
+                else
+                    cout << "Wheelbase: " << this->wheelbase << endl;
+
+                if(this->trackWidth == -1)
+                    cout << "Track Width Front: N/A" << endl;
+                else
+                    cout << "Track Width Front: " << this->trackWidth<< endl;
+
+                if(this->overallHeight == -1)
+                    cout << "Height Overall: N/A" << endl;
+                else
+                    cout << "Height Overall: " << this->overallHeight << endl;
+
+            }
 };
+
 
 
