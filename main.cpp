@@ -167,6 +167,17 @@ void getVehicleData(string file, vector<Vehicle>& vehicles) {
         }
     }
 }
+
+bool CompareMSRP(Vehicle car1, Vehicle car2) // sort from low to high
+{
+    return (car1.msrp < car2.msrp);
+}
+
+bool ComparePower(Vehicle car1, Vehicle car2) // sort from high to low
+{
+    return (car1.horsepower > car2.horsepower);
+}
+
 int main() {
     clock_t startT, endT;
     double time_taken;
