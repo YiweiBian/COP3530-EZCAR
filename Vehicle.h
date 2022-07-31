@@ -116,11 +116,11 @@ struct Vehicle {
                 if(this->cityMPG == -1)
                     cout << "City Fuel Economy: N/A" << endl;
                 else
-                    cout << "City Fuel Economy: $" << this->cityMPG << endl;
+                    cout << "City Fuel Economy: " << this->cityMPG << " (mpg)" << endl;
                 if(this->fuelCapacity == -1)
                     cout << "Fuel Tank Capacity: N/A" << endl;
                 else
-                    cout << "Fuel Tank Capacity: " << this->fuelCapacity << endl;
+                    cout << "Fuel Tank Capacity: " << this->fuelCapacity << " (gal)" << endl;
                 if(this->transmissionOutput == "-1")
                     cout << "Transmission: N/A" << endl;
                 else
@@ -128,11 +128,11 @@ struct Vehicle {
                 if(this->horsepowerOutput == "-1")
                     cout << "Horsepower: N/A" << endl;
                 else
-                    cout << "Horsepower: " << this->horsepowerOutput << endl;
+                    cout << "Horsepower: " << this->horsepowerOutput << " (hp)" << endl;
                 if(this->torqueOutput == "-1")
                     cout << "Torque: N/A" << endl;
                 else
-                    cout << "Torque: " << this->torqueOutput << endl;
+                    cout << "Torque: " << this->torqueOutput << " (N⋅m)" << endl;
                 if(this->fuelSystem == "-1")
                     cout << "Fuel System: N/A" << endl;
                 else
@@ -184,28 +184,46 @@ struct Vehicle {
                 if(this->curbWeight == -1)
                     cout << "Base Curb Weight: N/A" << endl;
                 else
-                    cout << "Base Curb Weight: " << this->curbWeight << endl;
+                    cout << "Base Curb Weight: " << this->curbWeight << " (lbs)" << endl;
 
                 if(this->passengerVolume == -1)
                     cout << "Passenger Volume: N/A" << endl;
                 else
-                    cout << "Passenger Volume: " << this->passengerVolume << endl;
+                    cout << "Passenger Volume: " << this->passengerVolume << " (ft³)" << endl;
 
                 if(this->wheelbase == -1)
                     cout << "Wheelbase: N/A" << endl;
                 else
-                    cout << "Wheelbase: " << this->wheelbase << endl;
+                    cout << "Wheelbase: " << this->wheelbase << " (in)" << endl;
 
                 if(this->trackWidth == -1)
                     cout << "Track Width Front: N/A" << endl;
                 else
-                    cout << "Track Width Front: " << this->trackWidth<< endl;
+                    cout << "Track Width Front: " << this->trackWidth << " (in)" << endl;
 
                 if(this->overallHeight == -1)
                     cout << "Height Overall: N/A" << endl;
                 else
-                    cout << "Height Overall: " << this->overallHeight << endl;
+                    cout << "Height Overall: " << this->overallHeight << " (in)" << endl;
+                if(this->turningDiameters == -1)
+                    cout << "Turning Diameter: N/A" << endl;
+                else
+                    cout << "Turning Diameter: " << this->turningDiameters << " (ft)" << endl;
 
+                if(this->frontWheelMaterial == "-1")
+                    cout << "Front Wheel Material: N/A" << endl;
+                else
+                    cout << "Front Wheel Material: " << this->frontWheelMaterial << endl;
+
+                if(this->frontTireWidth == "-1")
+                    cout << "Front Tire Width: N/A" << endl; 
+                else
+                    cout << "Front Tire Width: " << this->frontTireWidth << " (mm)" << endl;
+
+                if(this->rimSize == "-1")
+                    cout << "Front Tire Rim Size: N/A" << endl;
+                else
+                    cout << "Front Tire Rim Size: " << this->rimSize << " (in)" << endl;
             }
 };
 
