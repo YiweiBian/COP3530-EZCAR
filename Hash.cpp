@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-#pragma once
 #include "Vehicle.h"
 
 using namespace std;
@@ -8,6 +7,7 @@ class Hash
 {
     int BUCKET;
     int hashFactor = 31;
+    int size = 0;
 
     list<Vehicle> *table;
     
@@ -20,14 +20,24 @@ public:
 
     void insertItem(Vehicle car, int key)
     {
+        if (key == -1)
+        {
+            key = 0;
+        }
         int index = hashFunction(key);
         table[index].push_back(car);
+        size++;
     }
 
     void insertItem(Vehicle car, string key)
     {
+        if (key == "-1")
+        {
+            key = "0";
+        }
         int index = hashFunction(key);
         table[index].push_back(car);
+        size++;
     }
 
     list<Vehicle> searchItem(string key)
@@ -42,9 +52,26 @@ public:
         return table[index];
     }
 
+    list<Vehicle> searchItem(float key)
+    {
+        int index = hashFunction(key);
+        return table[index];
+    }
+
+    list<Vehicle>* getTable()
+    {
+        return table;
+    }
+
+    int getSize()
+    {
+        return size;
+    }
+
     int hashFunction(int x)
     {
         int index = 0;
+        if (x == -1)
 
         while (x != 0)
         {
@@ -54,26 +81,25 @@ public:
         return index % BUCKET;
     }
 
-    int hashFunction(string key)
+    int hashFunction(float x)
     {
         int index = 0;
 
+        index = x * hashFactor;
+
+        return index % BUCKET;
+    }
+
+    int hashFunction(string key)
+    {
+        int index = 0;
+        if (key == "-1")
+            return 0;
         for (int i = 0; i < key.length(); i++)
         {
             index += key.at(i) * hashFactor;
         }
         return index % BUCKET;
-    }
-
-    void printName()
-    {
-        for (int i = 0; i < BUCKET; i++)
-        {
-            for (auto j : table[i])
-            {
-                cout << j.model << endl;
-            }
-        }
     }
     
 };
