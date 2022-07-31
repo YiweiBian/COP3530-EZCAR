@@ -18,7 +18,7 @@ bool checkValidIntInput(string input){
 }
 
 bool checkValidString(string input){
-    regex constraint = regex("^[A-Z][a-zA-Z]$");
+    regex constraint = regex("^[A-Z][a-zA-Z]*$");
     return regex_search(input, constraint);
 }
 bool checkIndexThree(string input){
