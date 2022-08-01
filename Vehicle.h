@@ -103,7 +103,7 @@ struct Vehicle {
                 this->styleName = AR;
             }
             void printInfo(){
-                cout << "Vehicle Detail\n" << endl;\
+                cout << "\nVehicle Detail\n" << endl;\
                 cout << "Model: " << this->model << endl;
                 if(this->msrp == -1)
                     cout << "MSRP: N/A" << endl;
