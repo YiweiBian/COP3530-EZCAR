@@ -15,6 +15,10 @@ public:
     Hash(int size)
     {
         BUCKET = size;
+        if (size == 0)
+        {
+            BUCKET = 1;
+        }
         table = new list<Vehicle>[BUCKET];
     }
 
@@ -72,6 +76,9 @@ public:
     {
         int index = 0;
         if (x == -1)
+        {
+            x = 0;
+        }
 
         while (x != 0)
         {
@@ -84,7 +91,6 @@ public:
     int hashFunction(float x)
     {
         int index = 0;
-
         index = x * hashFactor;
 
         return index % BUCKET;
