@@ -56,6 +56,7 @@ public:
     min_heap reverse();
     vector<Vehicle> final_list();
     vector<Vehicle> print();
+    int size();
 };
 
 #endif //CAR_SELECTION_HEAP_H
