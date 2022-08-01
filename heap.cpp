@@ -54,17 +54,18 @@ void min_heap:: deleteMin(){
 Vehicle min_heap::extractMin() {
     return heap[0];
 }
-vector<Vehicle> max_heap::print() {
+
+vector<Vehicle> min_heap::print() {
     int size = heap.size();
     vector<Vehicle> final_list;
     if(size == 0){
         cout << "No results have been found!" << endl;
     }
     else{
-        for(unsigned int i = 0; i < size; i++){
-            cout << i << ". " << "$" << extractMax().msrp <<" "<< extractMax().model << endl;
-            final_list.push_back(extractMax());
-            deleteMax();
+        for(unsigned int i = 1; i < 21; i++){
+            cout << i << ". " << "$" << extractMin().msrp <<" "<< extractMin().model << endl;
+            final_list.push_back(extractMin());
+            deleteMin();
         }
     }
     return final_list;
@@ -78,9 +79,9 @@ void max_heap::heapifyDown(int index) {
     int largest = index;
     int size = heap.size();
     //compare the node with its left and right child
-    if(right_child < size && heap[largest].msrp < heap[right_child].msrp)
+    if(right_child < size && heap[largest].horsepower < heap[right_child].horsepower)
         largest = right_child;
-    if(left_child < size && heap[largest].msrp < heap[left_child].msrp){
+    if(left_child < size && heap[largest].horsepower < heap[left_child].horsepower){
         largest = left_child;
     }
     // the swap has occured
@@ -95,7 +96,7 @@ void max_heap::heapifyDown(int index) {
 
 void max_heap::heapifyUp(int index) {
     int parent = (index -1) / 2;
-    if(parent >=0 && heap[parent].msrp < heap[index].msrp){
+    if(parent >=0 && heap[parent].horsepower < heap[index].horsepower){
         Vehicle temp = heap[index];
         heap[index] = heap[parent];
         heap[parent] = temp;
@@ -144,7 +145,7 @@ max_heap max_heap::budgetSelection(int budget) {
 max_heap max_heap::yearSelection(int max, int min) {
     max_heap result;
     for(unsigned int i = 0; i < heap.size(); i++){
-        if(heap[i].year > min && heap[i].year < max){
+        if(heap[i].year >= min && heap[i].year <= max){
             result.insert(heap[i]);
         }
     }
@@ -278,21 +279,27 @@ min_heap max_heap::reverse() {
     return result;
 }
 
-
-vector<Vehicle> min_heap::print() {
+vector<Vehicle> max_heap::print() {
     int size = heap.size();
     vector<Vehicle> final_list;
-    if(size == 0){
+    if (size == 0) {
         cout << "No results have been found!" << endl;
-    }
-    else{
-        for(unsigned int i = 0; i < size; i++){
-            cout << i << ". " << "$" << extractMin().msrp <<" "<< extractMin().model << endl;
-            final_list.push_back(extractMin());
-            deleteMin();
+    } else {
+        for (unsigned int i = 0; i < 20; i++) {
+            cout << i << ". " << extractMax().horsepower <<" "<< extractMax().model << endl;
+            final_list.push_back(extractMax());
+            deleteMax();
         }
     }
     return final_list;
 }
+
+int max_heap::size() {
+    return heap.size();
+}
+
+
+
+
 
 
