@@ -102,8 +102,8 @@ struct Vehicle {
                 this->transmissionOutput = AQ;
                 this->styleName = AR;
             }
-            void printInfo(){
-                cout << "\nVehicle Detail\n" << endl;\
+            void printInfo(){ // detailed information that are printed at the end of program
+                cout << "\nVehicle Detail\n" << endl;
                 cout << "Model: " << this->model << endl;
                 if(this->msrp == -1)
                     cout << "MSRP: N/A" << endl;
