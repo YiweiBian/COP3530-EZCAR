@@ -10,6 +10,8 @@
 #include "heap.h"
 #include "heap.cpp"
 using namespace std;
+/////////////////////////////////////////////////////////////// Regex ////////////////////////////////////////////////////////////
+// used to check the validity of user input
 bool checkValidInteger(string input){
     regex constraint = regex("^[0-9]{1,1}$");
     if(!regex_search(input, constraint))
@@ -29,19 +31,19 @@ bool checkValidString(string input){
         cout << "Invalid input! Try again" << endl;
     return regex_search(input, constraint);
 }
-bool checkIndexThree(string input){
+bool checkIndexThree(string input){ // option from 1-3
     regex constraint = regex("^[1-3]{1,1}$");
     if(!regex_search(input, constraint))
         cout << "Invalid input! Try again" << endl;
     return regex_search(input, constraint);
 }
-bool checkIndexTwo(string input){
+bool checkIndexTwo(string input){ // option between 1 and 2
     regex constraint = regex("^[1-2]{1,1}$");
     if(!regex_search(input, constraint))
         cout << "Invalid input! Try again" << endl;
     return regex_search(input, constraint);
 }
-bool checkIndexFive(string input){
+bool checkIndexFive(string input){  // option from 1-5
     regex constraint = regex("^[1-5]{1,1}$");
     if(!regex_search(input, constraint))
         cout << "Invalid input! Try again" << endl;
@@ -208,6 +210,8 @@ int main() {
     
     cout << "\nWhich data structure you want to test?(Entere Index) \n1. Heap  2. HashTable" << endl;
     cin >>  choice;
+
+///////////////////////////////////////////////////////////////// HEAP //////////////////////////////////////////////////////////////////////
 if (choice == 1)
     {
         // heap part create a max_heap and add all vehicle inf. to the heap
@@ -237,7 +241,8 @@ if (choice == 1)
             min_heap final_low;
             //typeselection
             bool proceed = false;
-            while(!proceed){
+            // question 1
+            while(!proceed){ // proceed unless user gives a valid input
                 cout << "What type of car are you looking for?(Enter Index) \n1. Car 2. SUV 3. Pickup 4. Van 5. Any" << endl;
                 cin >> input;
                 proceed = checkIndexFive(input);
@@ -270,12 +275,12 @@ if (choice == 1)
             cout << " sec" << endl;
             cout << " " << endl;
 
-        if(aftertypeSelection.size() == 0){//add your .empty function here.
+        if(aftertypeSelection.size() == 0){  // terminate the program if no car meets expectation
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
 
-        //budget selection
+        // question 2
             proceed = false;
             while(!proceed){
                 cout << "How much are you planning to spend on this vehicle? (Enter \"0\" to skip)" << endl;
@@ -300,13 +305,13 @@ if (choice == 1)
             cout << " sec" << endl;
             cout << " " << endl;
 
-        if(afterbudgetSelection.size() == 0){//add your .empty function here.
+        if(afterbudgetSelection.size() == 0){ 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
 
 
-
+// question 3
         proceed = false;
             while(!proceed){
                 cout << "What is an ideal year range for your car? \n1. New(2015-2019) 2. Intermediate(2006-2014) 3. Old(before 2005) 4. Any" << endl;
@@ -336,13 +341,13 @@ if (choice == 1)
             cout << " sec" << endl;
             cout << " " << endl;
 
-        if(afteryearSelection.size() == 0){//add your .empty function here.
+        if(afteryearSelection.size() == 0){ 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
 
 
-
+// question 4
         proceed = false;
             while(!proceed){
                 cout << "Do you have a preferred brand/manufacturer? (Enter \"Skip\" to skip)" << endl;
@@ -365,12 +370,12 @@ if (choice == 1)
             cout << " sec" << endl;
             cout << " " << endl;
 
-        if(afterbrandSelection.size() == 0){//add your .empty function here.
+        if(afterbrandSelection.size() == 0){ 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
 
-
+// question 5
         proceed = false;
             while(!proceed){
                 cout << "Do you have a preferred type of transmission? \n1. Automatic 2. Manual 3. Any" << endl;
@@ -398,12 +403,12 @@ if (choice == 1)
             cout << "Time taken by this step is: " << fixed << time_taken << setprecision(5);
             cout << " sec" << endl;
             cout << " " << endl;
-        if(aftertransSelection.size() == 0){//add your .empty function here.
+        if(aftertransSelection.size() == 0){ 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
 
-
+// question 6
         bool electric = false;
 
             proceed = false;
@@ -433,7 +438,7 @@ if (choice == 1)
             cout << " sec" << endl;
             cout << " " << endl;
 
-        if(afterfuelSelection.size() == 0){//add your .empty function here.
+        if(afterfuelSelection.size() == 0){ 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
@@ -474,13 +479,13 @@ if (choice == 1)
             cout << " sec" << endl;
             cout << " " << endl;
 
-        if(afterpurposetSelection.size() == 0){//add your .empty function here.
+        if(afterpurposetSelection.size() == 0){ 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
 
 
-
+// question 7
         proceed = false;
             while(!proceed){
                 cout << "How many passenger seats are you expecting?\n 1. Less than one 2. Two to five 3. More than five" << endl;
@@ -509,13 +514,13 @@ if (choice == 1)
             cout << "Time taken by this step is: " << fixed << time_taken << setprecision(5);
             cout << " sec" << endl;
             cout << " " << endl;
-        if(afterseatsSelection.size() == 0){//add your .empty function here.
+        if(afterseatsSelection.size() == 0){ 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
 
 
-
+// question 8
         proceed = false;
             while(!proceed){
                 cout << "Would you want traction control and stability control for safer handling? \n1. Yes 2. Skip this question" << endl;
@@ -542,13 +547,13 @@ if (choice == 1)
             cout << "Time taken by this step is: " << fixed << time_taken << setprecision(5);
             cout << " sec" << endl;
             cout << " " << endl;
-        if(afterriskSelection.size() == 0){//add your .empty function here.
+        if(afterriskSelection.size() == 0){ 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
 
 
-
+// question 9
         proceed = false;
             while(!proceed){
                 cout << "Best protection (above 5 airbags and rollover protect) in case of an accident? \n1. Yes 2. Skip this question" << endl;
@@ -574,13 +579,13 @@ if (choice == 1)
             cout << "Time taken by this step is: " << fixed << time_taken << setprecision(5);
             cout << " sec" << endl;
             cout << " " << endl;
-        if(afterairbSelection.size() == 0){//add your .empty function here.
+        if(afterairbSelection.size() == 0){ 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
 
 
-
+// question 10
         proceed = false;
             while(!proceed){
                 cout << "Will there be a child in this vehicle? \n1. Yes 2. Skip this question" << endl;
@@ -607,13 +612,13 @@ if (choice == 1)
             cout << "Time taken by this step is: " << fixed << time_taken << setprecision(5);
             cout << " sec" << endl;
             cout << " " << endl;
-        if(afterchildSelection.size() == 0){//add your .empty function here.
+        if(afterchildSelection.size() == 0){ 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
 
 
-
+// question 11
         proceed = false;
             while(!proceed){
                 cout << "Do you need a back-up camera? \n1. Yes 2. Skip this question" << endl;
@@ -639,13 +644,13 @@ if (choice == 1)
             cout << "Time taken by this step is: " << fixed << time_taken << setprecision(5);
             cout << " sec" << endl;
             cout << " " << endl;
-        if(aftercameraSelection.size() == 0){//add your .empty function here.
+        if(aftercameraSelection.size() == 0){ 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
 
 
-
+// question 12
         proceed = false;
             while(!proceed){
                 cout << "Parking assistance? \n1. Yes 2. Skip this question" << endl;
@@ -671,13 +676,13 @@ if (choice == 1)
             cout << "Time taken by this step is: " << fixed << time_taken << setprecision(5);
             cout << " sec" << endl;
             cout << " " << endl;
-        if(afterassSelection.size() == 0){//add your .empty function here.
+        if(afterassSelection.size() == 0){ 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
 
 
-
+// question 13
         proceed = false;
             while(!proceed){
                 cout << "Day-time running lights? \n1. Yes 2. Skip this question" << endl;
@@ -703,12 +708,12 @@ if (choice == 1)
             cout << "Time taken by this step is: " << fixed << time_taken << setprecision(5);
             cout << " sec" << endl;
             cout << " " << endl;
-        if(afterlightSelection.size() == 0){//add your .empty function here.
+        if(afterlightSelection.size() == 0){ 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
 
-
+// question 14
         proceed = false;
             while(!proceed){
                 cout << "Your result is ready! How would you like it to be presented? \n1. Budget (Low to high) 2. Performance(High to low)" << endl;
@@ -774,6 +779,7 @@ if (choice == 1)
             }
         }
         }
+        ///////////////////////////////////////////////////// HASH TABLE ////////////////////////////////////////////////////////
     else if (choice == 2)
     {
         list<Vehicle> temp;
@@ -800,7 +806,7 @@ if (choice == 1)
 
         startT = clock();
         Hash q2(dataSize);
-        if (choice == 1)
+        if (choice == 1)               // After a selection was made, rest of the data will be rehashed into another hashtable
         {
             temp = q1.searchItem("Car");
             for (auto i : temp)
@@ -844,13 +850,24 @@ if (choice == 1)
                 }
             }
         }
+        else 
+        {
+            table = q1.getTable();
+            for (int i = 0; i < dataSize; i++)
+            {
+                for (auto j : table[i])
+                {
+                    q2.insertItem(j, j.msrp);
+                }
+            }
+        }
         endT = clock();
         time_taken = double(endT - startT) / double(CLOCKS_PER_SEC);
         totalTime += time_taken;
         cout << "time: " << fixed << time_taken << setprecision(5) << " sec" << endl;
 
         if(q2.getSize() == 0)
-        {//add your .empty function here.
+        { 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
@@ -901,7 +918,7 @@ if (choice == 1)
         cout << "time: " << time_taken << fixed << setprecision(5) << " sec" << endl;
 
         if(q3.getSize() == 0)
-        {//add your .empty function here.
+        { 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
@@ -960,13 +977,23 @@ if (choice == 1)
                 }
             }
         }
+        else if (choice == 4)
+        {
+            for (int i = 0; i < q2.getSize(); i++)
+            {
+                for (auto j : table[i])
+                {
+                    q4.insertItem(j, j.manufacturer);
+                }
+            }
+        }
         endT = clock();
         time_taken = double(endT - startT) / double(CLOCKS_PER_SEC);
         totalTime += time_taken;
         cout << "time: " << time_taken << fixed << setprecision(5) << " sec" << endl;
 
     if(q4.getSize() == 0)
-        {//add your .empty function here.
+        { 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
@@ -1011,7 +1038,7 @@ if (choice == 1)
         cout << "time: " << time_taken << fixed << setprecision(5) << " sec" << endl;
 
         if(q5.getSize() == 0)
-        {//add your .empty function here.
+        { 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
@@ -1045,7 +1072,7 @@ if (choice == 1)
                 }
             }
         }
-        else
+        else if (choice == 2)
         {
             temp = q5.searchItem("Manual");
             for (auto i : temp)
@@ -1059,13 +1086,27 @@ if (choice == 1)
                 }
             }
         }
+        else 
+        {
+            table = q5.getTable();
+            for (int i = 0; i < q4.getSize(); i++)
+            {
+                for (auto j : table[i])
+                {
+                    if (j.engine != "Electric")
+                        q6.insertItem(j, "Gas");
+                    else
+                        q6.insertItem(j, "Electric");
+                }
+            }
+        }
         endT = clock();
         time_taken = double(endT - startT) / double(CLOCKS_PER_SEC);
         totalTime += time_taken;
         cout << "time: " << time_taken << fixed << setprecision(5) << " sec" << endl;
 
         if(q6.getSize() == 0)
-        {//add your .empty function here.
+        { 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
@@ -1144,7 +1185,7 @@ if (choice == 1)
         cout << "time: " << time_taken << fixed << setprecision(5) << " sec" << endl;
 
         if(q7.getSize() == 0)
-        {//add your .empty function here.
+        { 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
@@ -1233,7 +1274,7 @@ if (choice == 1)
             }
         }
         if(q8.getSize() == 0)
-        {//add your .empty function here.
+        { 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
@@ -1291,7 +1332,7 @@ if (choice == 1)
         cout << "time: " << time_taken << fixed << setprecision(5) << " sec" << endl;
 
         if(q9.getSize() == 0)
-        {//add your .empty function here.
+        { 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
@@ -1338,7 +1379,7 @@ if (choice == 1)
         cout << "time: " << time_taken << fixed << setprecision(5) << " sec" << endl;
 
         if(q10.getSize() == 0)
-        {//add your .empty function here.
+        { 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
@@ -1384,7 +1425,7 @@ if (choice == 1)
         cout << "time: " << time_taken << fixed << setprecision(5) << " sec" << endl;
 
         if(q11.getSize() == 0)
-        {//add your .empty function here.
+        { 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
@@ -1428,7 +1469,7 @@ if (choice == 1)
         cout << "time: " << time_taken << fixed << setprecision(5) << " sec" << endl;
 
         if(q12.getSize() == 0)
-        {//add your .empty function here.
+        { 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
@@ -1472,7 +1513,7 @@ if (choice == 1)
         cout << "time: " << time_taken << fixed << setprecision(5) << " sec" << endl;
 
         if(q13.getSize() == 0)
-        {//add your .empty function here.
+        { 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
@@ -1516,7 +1557,7 @@ if (choice == 1)
         cout << "time: " << time_taken << fixed << setprecision(5) << " sec" << endl;
 
         if(q14.getSize() == 0)
-        {//add your .empty function here.
+        { 
             cout << "\nSorry, there are no vehicle meeting your requirements! Try to widen your choices and start again." << endl;
             return 0;
         }
